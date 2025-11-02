@@ -45,15 +45,37 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
    * State & Hooks
    */
   const [collapsed, setCollapsed] = useState(false);  // Sidebar collapsed state
+  const [isMobile, setIsMobile] = useState(false);    // Mobile detection
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (isMobile && !collapsed) {
+      const touch = e.touches[0];
+      // Store initial touch position
+      (e.currentTarget as any).touchStartX = touch.clientX;
+    }
+  };
+  
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (isMobile && !collapsed) {
+      const touch = e.changedTouches[0];
+      const startX = (e.currentTarget as any).touchStartX;
+      
+      // If swiped left more than 50px, close sidebar
+      if (startX - touch.clientX > 50) {
+        setCollapsed(true);
+      }
+    }
+  };
 
   /**
    * Detect mobile screen size
    */
   useEffect(() => {
     const checkMobile = () => {
+    setIsMobile(window.innerWidth <= 992);
       if (window.innerWidth <= 992) {
         setCollapsed(true);
       }
@@ -157,6 +179,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           setCollapsed(broken);
         }}
         className="dashboard-sider"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {/**
          * Logo Section
