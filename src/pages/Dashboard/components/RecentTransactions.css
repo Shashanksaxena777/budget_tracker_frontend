@@ -1,0 +1,190 @@
+/**
+ * Recent Transactions Styles
+ */
+
+/* ============================================
+   Card Container
+   ============================================ */
+
+   .recent-transactions-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .recent-transactions-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* ============================================
+     List Item
+     ============================================ */
+  
+  .transaction-list-item {
+    padding: 16px 0 !important;
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .transaction-list-item:hover {
+    background: #fafafa;
+  }
+  
+  /* ============================================
+     Type Tag (Income/Expense)
+     ============================================ */
+  
+  .type-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  /* ============================================
+     Transaction Description
+     ============================================ */
+  
+  .transaction-description {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  
+  /* ============================================
+     Transaction Meta (Category and Date)
+     ============================================ */
+  
+  .transaction-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  
+  .category-name {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .category-name::after {
+    content: '•';
+    margin: 0 8px;
+    color: rgba(0, 0, 0, 0.25);
+  }
+  
+  .transaction-date {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+  
+  /* ============================================
+     Amount Display
+     ============================================ */
+  
+  .transaction-amount {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .transaction-amount.income {
+    color: #52c41a;
+  }
+  
+  .transaction-amount.expense {
+    color: #ff4d4f;
+  }
+  
+  .amount-icon {
+    font-size: 14px;
+  }
+  
+  .amount-text {
+    font-size: 16px;
+  }
+  
+  /* ============================================
+     Empty State
+     ============================================ */
+  
+  .recent-transactions-card .ant-empty {
+    padding: 40px 0;
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Tablet
+  */
+  @media (max-width: 992px) {
+    .transaction-list-item {
+      padding: 12px 0 !important;
+    }
+    
+    .amount-text {
+      font-size: 15px;
+    }
+    
+    .transaction-description {
+      font-size: 14px;
+    }
+  }
+  
+  /*
+    Mobile
+  */
+  @media (max-width: 576px) {
+    .transaction-list-item {
+      padding: 10px 0 !important;
+    }
+    
+    .type-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+    }
+    
+    .transaction-description {
+      font-size: 13px;
+    }
+    
+    .transaction-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    
+    .category-name::after {
+      display: none;
+    }
+    
+    .amount-text {
+      font-size: 14px;
+    }
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .recent-transactions-card {
+      box-shadow: none;
+      border: 1px solid #d9d9d9;
+    }
+    
+    .transaction-list-item:hover {
+      background: white;
+    }
+    
+    /*
+      Ensure colors print
+    */
+    .type-tag,
+    .transaction-amount {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }

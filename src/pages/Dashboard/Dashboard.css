@@ -1,0 +1,84 @@
+/**
+ * Dashboard Page Styles
+ */
+
+/* ============================================
+   Dashboard Header Section
+   ============================================ */
+
+   .dashboard-header-section {
+    margin-bottom: 24px;
+    animation: fadeInDown 0.5s ease-out;
+  }
+  
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  /* ============================================
+     Refresh Button
+     ============================================ */
+  
+  .refresh-button {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .refresh-button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  .refresh-button.ant-btn-loading .anticon {
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* ============================================
+     Page Animations
+     ============================================ */
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Mobile
+  */
+  @media (max-width: 576px) {
+    .dashboard-header-section {
+      margin-bottom: 16px;
+    }
+    
+    .header-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .refresh-button {
+      width: 100%;
+    }
+  }

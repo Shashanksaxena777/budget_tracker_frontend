@@ -1,0 +1,231 @@
+/**
+ * Summary Cards Styles
+ * 
+ * Beautiful, modern card styles with hover effects
+ */
+
+/* ============================================
+   Summary Cards Container
+   ============================================ */
+
+   .summary-cards {
+    margin-bottom: 24px;
+  }
+  
+  /* ============================================
+     Individual Card Styling
+     ============================================ */
+  
+  .summary-card {
+    /*
+      Smooth transitions for hover effects
+    */
+    transition: all 0.3s ease;
+    
+    /*
+      Border radius for modern look
+    */
+    border-radius: 12px;
+    
+    /*
+      Subtle shadow
+    */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  /*
+    Hover effect - Lift card
+  */
+  .summary-card:hover {
+    /*
+      Stronger shadow on hover
+    */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    
+    /*
+      Slight lift effect
+    */
+    transform: translateY(-4px);
+  }
+  
+  /* ============================================
+     Card-Specific Accents
+     ============================================ */
+  
+  /*
+    Income Card - Green accent
+  */
+  .income-card {
+    border-left: 4px solid #52c41a;
+  }
+  
+  .income-card:hover {
+    border-left-color: #73d13d;
+  }
+  
+  /*
+    Expense Card - Red accent
+  */
+  .expense-card {
+    border-left: 4px solid #ff4d4f;
+  }
+  
+  .expense-card:hover {
+    border-left-color: #ff7875;
+  }
+  
+  /*
+    Balance Card - Blue accent
+  */
+  .balance-card {
+    border-left: 4px solid #1677ff;
+  }
+  
+  .balance-card:hover {
+    border-left-color: #4096ff;
+  }
+  
+  /* ============================================
+     Statistic Styling
+     ============================================ */
+  
+  /*
+    Title styling
+  */
+  .summary-card .ant-statistic-title {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  /*
+    Value styling
+  */
+  .summary-card .ant-statistic-content {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /*
+    Icon (prefix) styling
+  */
+  .summary-card .ant-statistic-content-prefix {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  
+  /* ============================================
+     Count Badge
+     ============================================ */
+  
+  .count-badge {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: normal;
+    margin-left: 8px;
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Tablet
+  */
+  @media (max-width: 992px) {
+    .summary-card .ant-statistic-content {
+      font-size: 20px;
+    }
+    
+    .summary-card .ant-statistic-content-prefix {
+      font-size: 18px;
+    }
+  }
+  
+  /*
+    Mobile
+  */
+  @media (max-width: 576px) {
+    .summary-cards {
+      margin-bottom: 16px;
+    }
+    
+    .summary-card {
+      margin-bottom: 12px;
+    }
+    
+    .summary-card .ant-statistic-content {
+      font-size: 18px;
+    }
+    
+    .summary-card .ant-statistic-content-prefix {
+      font-size: 16px;
+    }
+    
+    .count-badge {
+      display: block;
+      margin-left: 0;
+      margin-top: 4px;
+    }
+  }
+  
+  /* ============================================
+     Loading State (Skeleton)
+     ============================================ */
+  
+  .summary-card .ant-skeleton {
+    padding: 8px 0;
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .summary-card {
+      /*
+        Remove shadows for print
+      */
+      box-shadow: none;
+      border: 1px solid #d9d9d9;
+      
+      /*
+        No hover effects
+      */
+      transform: none !important;
+    }
+    
+    .summary-card:hover {
+      box-shadow: none;
+    }
+  }
+  
+  /**
+   * Design Principles:
+   * 
+   * 1. Visual Hierarchy:
+   *    - Title: Smaller, lighter
+   *    - Value: Larger, bolder
+   *    - Creates clear focus on numbers
+   * 
+   * 2. Color Accents:
+   *    - Left border provides color identity
+   *    - Doesn't overwhelm with color
+   *    - Maintains professional look
+   * 
+   * 3. Hover Effects:
+   *    - Subtle lift (translateY)
+   *    - Stronger shadow
+   *    - Interactive feedback
+   * 
+   * 4. Responsive:
+   *    - Smaller fonts on mobile
+   *    - Stack cards vertically
+   *    - Adjust spacing
+   * 
+   * 5. Transitions:
+   *    - Smooth animations
+   *    - All property changes animated
+   *    - Professional feel
+   */

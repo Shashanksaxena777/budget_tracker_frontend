@@ -1,0 +1,165 @@
+/**
+ * Budget Page Styles
+ */
+
+/* ============================================
+   Page Header
+   ============================================ */
+
+   .budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.5s ease-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============================================
+     No Budget State
+     ============================================ */
+  
+  .no-budget-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .no-budget-card {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+  }
+  
+  /* ============================================
+     Budget Summary Cards
+     ============================================ */
+  
+  .budget-summary-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .budget-summary-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  .budget-summary-card .ant-statistic-title {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 8px;
+  }
+  
+  .budget-summary-card .ant-statistic-content {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* ============================================
+     Progress Circle in Card
+     ============================================ */
+  
+  .budget-summary-card .ant-progress-circle {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* ============================================
+     Alert Styling
+     ============================================ */
+  
+  .ant-alert {
+    border-radius: 8px;
+    animation: slideInDown 0.5s ease-out;
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /* Mobile */
+  @media (max-width: 576px) {
+    .budget-header {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .budget-header button {
+      width: 100%;
+    }
+    
+    .no-budget-card {
+      padding: 24px;
+    }
+    
+    .budget-summary-card .ant-statistic-content {
+      font-size: 20px;
+    }
+  }
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+    .budget-summary-card {
+      margin-bottom: 12px;
+    }
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .budget-header button,
+    .ant-alert-close-icon {
+      display: none !important;
+    }
+    
+    .budget-summary-card,
+    .no-budget-card {
+      box-shadow: none;
+      border: 1px solid #d9d9d9;
+    }
+    
+    .ant-alert {
+      border: 1px solid currentColor;
+    }
+  }

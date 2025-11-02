@@ -1,0 +1,100 @@
+/**
+ * Transactions Page Styles
+ */
+
+/* ============================================
+   Page Header
+   ============================================ */
+
+   .transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.5s ease-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============================================
+     Transactions Table
+     ============================================ */
+
+  
+  /* Table row hover effect */
+  .transactions-table .ant-table-tbody > tr:hover > td {
+    background: #fafafa;
+    cursor: pointer;
+  }
+  
+  /* Action buttons spacing */
+  .transactions-table .ant-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .transactions-table .ant-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ============================================
+     Mobile Filters Toggle
+     ============================================ */
+  
+  .mobile-hidden {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-hidden {
+      display: none;
+    }
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /* Mobile */
+  @media (max-width: 576px) {
+    .transactions-header {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .transactions-header button {
+      width: 100%;
+    }
+  }
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+    /* Ensure table scrolls horizontally */
+    .ant-table-wrapper {
+      overflow-x: auto;
+    }
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .transactions-header button,
+    .transactions-table .ant-table-column-sorters,
+    .transactions-table .ant-btn {
+      display: none !important;
+    }
+    
+    .ant-pagination {
+      display: none !important;
+    }
+  }     

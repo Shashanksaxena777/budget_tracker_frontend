@@ -1,0 +1,299 @@
+/**
+ * Global Styles
+ * 
+ * These styles apply to the entire application.
+ * Ant Design provides most styling, but we add some global resets and utilities.
+ */
+
+/* ============================================
+   CSS Reset & Base Styles
+   ============================================ */
+
+/* 
+  Box-sizing: border-box
+  
+  What does this do?
+  - Includes padding and border in element's width/height
+  - Makes sizing more predictable
+  
+  Example:
+  Without border-box:
+    width: 100px + padding: 20px = 120px total
+  
+  With border-box:
+    width: 100px (includes padding) = 100px total
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Root element styles
+  
+  Why 100% height?
+  - Allows child elements to use full viewport height
+  - Necessary for full-height layouts
+*/
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* 
+  Body styles
+  
+  - Font smoothing for better text rendering on Mac/Windows
+  - Default font (overridden by Ant Design theme)
+*/
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;  /* Light gray background */
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* 
+  Flexbox utilities
+  
+  Use these for centering content, creating layouts, etc.
+*/
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Spacing utilities
+  
+  Quick margin/padding classes
+*/
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
+.p-1 { padding: 8px; }
+.p-2 { padding: 16px; }
+.p-3 { padding: 24px; }
+.p-4 { padding: 32px; }
+
+/* 
+  Text utilities
+*/
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+/* ============================================
+   Custom Scrollbar (Modern Look)
+   ============================================ */
+
+/* 
+  Custom scrollbar for Webkit browsers (Chrome, Safari, Edge)
+  
+  Creates a sleek, minimal scrollbar that matches modern design
+*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ============================================
+   Ant Design Overrides
+   ============================================ */
+
+/* 
+  Card shadow on hover
+  
+  Adds subtle elevation effect when hovering over cards
+*/
+.ant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+/* 
+  Smooth transitions for interactive elements
+*/
+.ant-btn,
+.ant-input,
+.ant-select-selector {
+  transition: all 0.3s ease;
+}
+
+/* 
+  Focus outline
+  
+  Better accessibility - visible focus state for keyboard navigation
+*/
+*:focus-visible {
+  outline: 2px solid #1677ff;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Animation Utilities
+   ============================================ */
+
+/* 
+  Fade in animation
+  
+  Use with: className="fade-in"
+  Creates smooth appearance effect
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 
+  Spin animation (for custom loaders)
+*/
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   Responsive Utilities
+   ============================================ */
+
+/* 
+  Hide/show based on screen size
+  
+  Mobile-first approach:
+  - .mobile-only: Only visible on mobile
+  - .desktop-only: Only visible on desktop
+*/
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+/* 
+  Optimize for printing
+  (Useful for printing reports, transaction lists, etc.)
+*/
+@media print {
+  /* Hide unnecessary elements when printing */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Use white background for printing */
+  body {
+    background: white;
+  }
+  
+  /* Remove shadows for cleaner print */
+  .ant-card {
+    box-shadow: none;
+    border: 1px solid #d9d9d9;
+  }
+}
+
+/**
+ * Usage Examples:
+ * 
+ * Flexbox:
+ * <div className="flex-center">
+ *   <h1>Centered Content</h1>
+ * </div>
+ * 
+ * Spacing:
+ * <div className="mt-3 p-2">
+ *   Content with margin-top and padding
+ * </div>
+ * 
+ * Animation:
+ * <div className="fade-in">
+ *   Smooth fade in effect
+ * </div>
+ * 
+ * Responsive:
+ * <div className="mobile-only">
+ *   Only visible on mobile
+ * </div>
+ */

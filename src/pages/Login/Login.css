@@ -1,0 +1,485 @@
+/**
+ * Login Page Styles
+ * 
+ * Modern, clean styles for the login page.
+ * Features:
+ * - Centered layout
+ * - Animated gradient background
+ * - Card elevation
+ * - Smooth animations
+ * - Responsive design
+ */
+
+/* ============================================
+   Login Container
+   ============================================ */
+
+   .login-container {
+    /* 
+      Full viewport height
+      Creates centered layout
+    */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    
+    /* 
+      Base background
+      Gradient from blue to purple
+    */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  /* ============================================
+     Animated Background
+     ============================================ */
+  
+  .login-background {
+    /*
+      Positioned behind card
+      Creates depth and visual interest
+    */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  /*
+    Gradient Circles
+    
+    Floating circular gradients that animate.
+    Creates modern, dynamic background.
+  */
+  .gradient-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(60px);
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  /* Circle 1: Blue */
+  .circle-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.8) 0%, rgba(102, 126, 234, 0) 70%);
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+  }
+  
+  /* Circle 2: Purple */
+  .circle-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(118, 75, 162, 0.8) 0%, rgba(118, 75, 162, 0) 70%);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 7s;
+  }
+  
+  /* Circle 3: Pink */
+  .circle-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(237, 100, 166, 0.6) 0%, rgba(237, 100, 166, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 14s;
+  }
+  
+  /*
+    Float Animation
+    
+    Smooth floating motion for gradient circles.
+    Creates subtle movement in background.
+  */
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(50px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-50px, 50px) scale(0.9);
+    }
+  }
+  
+  /* ============================================
+     Login Card
+     ============================================ */
+  
+  .login-card {
+    /*
+      Position above background
+      Max width for readability
+      Smooth entrance animation
+    */
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 450px;
+    
+    /*
+      Box shadow for depth
+      Multiple layers create realistic elevation
+    */
+    box-shadow: 
+      0 10px 40px rgba(0, 0, 0, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /*
+      Border radius for modern look
+    */
+    border-radius: 16px;
+    
+    /*
+      Entrance animation
+    */
+    animation: slideInUp 0.6s ease-out;
+  }
+  
+  /*
+    Slide In Up Animation
+    
+    Card enters from bottom with fade effect.
+  */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============================================
+     Login Header
+     ============================================ */
+  
+  .login-header {
+    /*
+      Center all content
+      Add spacing
+    */
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  /*
+    Logo Circle
+    
+    Circular container for icon.
+    Creates focal point at top of card.
+  */
+  .logo-circle {
+    /*
+      Circular shape
+    */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    
+    /*
+      Gradient background
+    */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /*
+      Center icon inside
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /*
+      Center circle itself
+    */
+    margin: 0 auto 16px;
+    
+    /*
+      Shadow for depth
+    */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    
+    /*
+      Smooth transitions
+    */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /*
+    Logo hover effect
+    
+    Subtle lift on hover for interactivity.
+  */
+  .logo-circle:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  }
+  
+  /* ============================================
+     Form Styles
+     ============================================ */
+  
+  /*
+    Enhance input focus
+    
+    Makes active input stand out.
+  */
+  .login-card .ant-input:focus,
+  .login-card .ant-input-focused,
+  .login-card .ant-input-password:focus-within {
+    /*
+      Blue border on focus
+    */
+    border-color: #1677ff;
+    box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+  }
+  
+  /*
+    Input prefix icons
+    
+    Color for icons inside inputs.
+  */
+  .login-card .ant-input-prefix {
+    color: rgba(0, 0, 0, 0.45);
+  }
+  
+  /*
+    Submit button enhancement
+    
+    Make primary button more prominent.
+  */
+  .login-card .ant-btn-primary {
+    /*
+      Gradient background
+    */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    
+    /*
+      Taller button
+    */
+    height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+    
+    /*
+      Shadow for depth
+    */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    
+    /*
+      Smooth transitions
+    */
+    transition: all 0.3s ease;
+  }
+  
+  /*
+    Button hover effect
+  */
+  .login-card .ant-btn-primary:hover {
+    /*
+      Lift effect
+    */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+    
+    /*
+      Slightly adjust gradient
+    */
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+  }
+  
+  /*
+    Button active (clicked) effect
+  */
+  .login-card .ant-btn-primary:active {
+    transform: translateY(0);
+  }
+  
+  /*
+    Disabled button
+  */
+  .login-card .ant-btn-primary:disabled {
+    background: #d9d9d9;
+    box-shadow: none;
+  }
+  
+  /* ============================================
+     Test Credentials Section
+     ============================================ */
+  
+  .test-credentials {
+    /*
+      Light background
+    */
+    background: #f5f7fa;
+    padding: 12px;
+    border-radius: 8px;
+    
+    /*
+      Center text
+    */
+    text-align: center;
+    
+    /*
+      Subtle border
+    */
+    border: 1px dashed #d9d9d9;
+    
+    /*
+      Margin above
+    */
+    margin-top: 8px;
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Mobile devices (phones)
+  */
+  @media (max-width: 576px) {
+    .login-card {
+      /*
+        Smaller radius on mobile
+      */
+      border-radius: 12px;
+      
+      /*
+        Less padding
+      */
+      padding: 24px 16px;
+    }
+    
+    .logo-circle {
+      /*
+        Smaller logo on mobile
+      */
+      width: 64px;
+      height: 64px;
+    }
+    
+    .logo-circle svg {
+      font-size: 24px !important;
+    }
+    
+    .login-header h2 {
+      /*
+        Smaller title
+      */
+      font-size: 24px !important;
+    }
+    
+    /*
+      Smaller gradient circles on mobile
+      (Better performance)
+    */
+    .circle-1,
+    .circle-2,
+    .circle-3 {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  /*
+    Tablet devices
+  */
+  @media (min-width: 577px) and (max-width: 992px) {
+    .login-card {
+      max-width: 400px;
+    }
+  }
+  
+  /*
+    Large screens
+  */
+  @media (min-width: 1200px) {
+    .login-card {
+      max-width: 480px;
+    }
+  }
+  
+  /* ============================================
+     Accessibility
+     ============================================ */
+  
+  /*
+    Respect user's motion preferences
+    
+    If user prefers reduced motion, disable animations.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    .login-card,
+    .gradient-circle,
+    .logo-circle,
+    .ant-btn-primary {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  
+  /*
+    High contrast mode
+    
+    Ensure visibility in high contrast mode.
+  */
+  @media (prefers-contrast: high) {
+    .login-card {
+      border: 2px solid currentColor;
+    }
+    
+    .login-background {
+      opacity: 0.5;
+    }
+  }
+  
+  /**
+   * CSS Techniques Used:
+   * 
+   * 1. Flexbox:
+   *    - Centering content
+   *    - Flexible layouts
+   * 
+   * 2. Animations:
+   *    - @keyframes for custom animations
+   *    - Smooth transitions
+   *    - Transform for movement
+   * 
+   * 3. Gradients:
+   *    - linear-gradient for backgrounds
+   *    - radial-gradient for circles
+   * 
+   * 4. Box Shadow:
+   *    - Multiple layers for depth
+   *    - Realistic elevation
+   * 
+   * 5. Positioning:
+   *    - absolute for overlay effects
+   *    - relative for stacking context
+   * 
+   * 6. Responsive Design:
+   *    - Media queries for different screens
+   *    - Flexible units (%, vh)
+   * 
+   * 7. Accessibility:
+   *    - prefers-reduced-motion
+   *    - prefers-contrast
+   *    - Focus states
+   */

@@ -1,0 +1,472 @@
+/**
+ * Dashboard Layout Styles
+ * 
+ * Professional, modern styles for the dashboard layout.
+ */
+
+/* ============================================
+   Main Layout
+   ============================================ */
+
+   .dashboard-layout {
+    min-height: 100vh;
+  }
+  
+  /* ============================================
+     Sidebar (Sider)
+     ============================================ */
+  
+  .dashboard-sider {
+    /* 
+      Box shadow for depth
+      Subtle shadow separates sidebar from content
+    */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+    
+    /*
+      Higher z-index to appear above content
+    */
+    z-index: 10;
+    
+    /*
+      Smooth transitions
+    */
+    transition: all 0.2s ease;
+    
+    /*
+      Fixed position - stays in place while scrolling
+    */
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  /* ============================================
+     Logo Section
+     ============================================ */
+  
+  .logo-section {
+    /*
+      Height matches header
+    */
+    height: 64px;
+    
+    /*
+      Center content
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    
+    /*
+      Padding
+    */
+    padding: 16px;
+    
+    /*
+      Slightly lighter than sidebar
+    */
+    background: rgba(255, 255, 255, 0.05);
+    
+    /*
+      Border at bottom
+    */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .logo-icon {
+    font-size: 24px;
+    color: #1677ff;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
+  /* ============================================
+     Navigation Menu
+     ============================================ */
+  
+  .dashboard-menu {
+    /*
+      Remove default border
+    */
+    border-right: 0;
+    
+    /*
+      Padding around menu
+    */
+    padding: 16px 0;
+  }
+  
+  /*
+    Menu item styling
+  */
+  .dashboard-menu .ant-menu-item {
+    /*
+      Rounded corners
+    */
+    border-radius: 8px;
+    
+    /*
+      Margin for spacing
+    */
+    margin: 4px 8px;
+    
+    /*
+      Reduce width for better look
+    */
+    width: auto;
+    
+    /*
+      Smooth transitions
+    */
+    transition: all 0.3s ease;
+  }
+  
+  /*
+    Selected menu item
+  */
+  .dashboard-menu .ant-menu-item-selected {
+    /*
+      Gradient background for selected item
+    */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    
+    /*
+      Ensure text is white
+    */
+    color: white !important;
+  }
+  
+  /*
+    Menu item hover effect
+  */
+  .dashboard-menu .ant-menu-item:hover {
+    /*
+      Subtle background on hover
+    */
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* ============================================
+     Header
+     ============================================ */
+  
+  .dashboard-header {
+    /*
+      White background
+    */
+    background: #fff;
+    
+    /*
+      Remove default padding
+    */
+    padding: 0 24px;
+    
+    /*
+      Space between trigger and user section
+    */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /*
+      Box shadow for depth
+    */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
+    /*
+      Above content
+    */
+    z-index: 9;
+    
+    /*
+      Fixed position - stays at top while scrolling
+    */
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: calc(100% - 200px);  /* Full width minus sidebar */
+    transition: width 0.2s ease;
+  }
+  
+  /* When sidebar is collapsed */
+  .ant-layout-sider-collapsed + .ant-layout .dashboard-header {
+    width: calc(100% - 80px);  /* Full width minus collapsed sidebar */
+  }
+  
+  /* ============================================
+     Trigger Button (Collapse/Expand)
+     ============================================ */
+  
+  .trigger-button {
+    /*
+      Larger font for icon
+    */
+    font-size: 18px;
+    
+    /*
+      Size
+    */
+    width: 40px;
+    height: 40px;
+    
+    /*
+      Smooth transitions
+    */
+    transition: all 0.3s ease;
+  }
+  
+  .trigger-button:hover {
+    /*
+      Background on hover
+    */
+    background: #f0f2f5;
+    
+    /*
+      Primary color
+    */
+    color: #1677ff;
+  }
+  
+  /* ============================================
+     User Section
+     ============================================ */
+  
+  .user-section {
+    /*
+      Padding
+    */
+    padding: 8px 12px;
+    
+    /*
+      Rounded corners
+    */
+    border-radius: 8px;
+    
+    /*
+      Smooth transitions
+    */
+    transition: background 0.3s ease;
+  }
+  
+  .user-section:hover {
+    /*
+      Background on hover
+    */
+    background: #f0f2f5;
+  }
+  
+  .username {
+    /*
+      Text color
+    */
+    color: rgba(0, 0, 0, 0.88);
+    
+    /*
+      Max width to prevent overflow
+    */
+    max-width: 150px;
+    
+    /*
+      Truncate long names
+    */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* ============================================
+     Content Area
+     ============================================ */
+  
+  .dashboard-content {
+    /*
+      Padding around content
+    */
+    padding: 24px;
+    
+    /*
+      Light background
+    */
+    background: #f0f2f5;
+    
+    /*
+      Minimum height
+    */
+    min-height: calc(100vh - 64px);  /* Full height minus header */
+    
+    /*
+      Smooth scroll
+    */
+    overflow-y: auto;
+    
+    /*
+      Add top margin to account for fixed header
+    */
+    margin-top: 64px;  /* Height of fixed header */
+    margin-left: 200px;  /* Width of sidebar */
+    transition: margin-left 0.2s ease;
+  }
+  
+  /* When sidebar is collapsed */
+  .ant-layout-sider-collapsed ~ .ant-layout .dashboard-content {
+    margin-left: 80px;  /* Width of collapsed sidebar */
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Tablet and below
+  */
+  @media (max-width: 992px) {
+    .dashboard-header {
+      padding: 0 16px;
+      width: 100% !important;  /* Full width on mobile */
+    }
+    
+    .dashboard-content {
+      padding: 16px;
+      margin-left: 0 !important;  /* No left margin on mobile */
+    }
+    
+    /*
+      Hide username on smaller screens
+    */
+    .username {
+      display: none;
+    }
+    
+    /* Sidebar becomes overlay on mobile */
+    .dashboard-sider {
+      position: fixed !important;
+      z-index: 1000;
+    }
+  }
+  
+  /*
+    Mobile
+  */
+  @media (max-width: 576px) {
+    .dashboard-header {
+      padding: 0 12px;
+    }
+    
+    .dashboard-content {
+      padding: 12px;
+    }
+    
+    .logo-text {
+      font-size: 16px;
+    }
+    
+    .trigger-button {
+      font-size: 16px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  /* ============================================
+     Animation Utilities
+     ============================================ */
+  
+  /*
+    Fade in animation for content
+  */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .dashboard-content > * {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* ============================================
+     Dark Mode Support (Future)
+     ============================================ */
+  
+  /*
+    These styles are ready for dark mode implementation
+    Just add a .dark-mode class to body
+  */
+  .dark-mode .dashboard-header {
+    background: #141414;
+    border-bottom: 1px solid #303030;
+  }
+  
+  .dark-mode .dashboard-content {
+    background: #000000;
+  }
+  
+  .dark-mode .username {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .dashboard-sider,
+    .dashboard-header {
+      display: none !important;
+    }
+    
+    .dashboard-content {
+      padding: 0;
+      background: white;
+    }
+  }
+  
+  /**
+   * CSS Techniques Used:
+   * 
+   * 1. Flexbox:
+   *    - Header: space-between for alignment
+   *    - Logo section: center content
+   * 
+   * 2. Box Shadow:
+   *    - Subtle depth for header and sidebar
+   *    - Creates layered appearance
+   * 
+   * 3. Transitions:
+   *    - Smooth state changes
+   *    - Hover effects
+   * 
+   * 4. Media Queries:
+   *    - Responsive design
+   *    - Different layouts for different screens
+   * 
+   * 5. Calc():
+   *    - Dynamic height calculations
+   *    - min-height: calc(100vh - 64px)
+   * 
+   * 6. Gradients:
+   *    - Linear gradient for selected menu item
+   *    - Modern, eye-catching effect
+   * 
+   * 7. Z-index:
+   *    - Layering elements
+   *    - Sidebar above content
+   * 
+   * 8. Animations:
+   *    - Keyframes for fade-in
+   *    - Smooth content appearance
+   */

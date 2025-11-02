@@ -1,0 +1,265 @@
+/**
+ * Financial Chart Styles
+ * 
+ * Styles for D3.js chart and its container
+ */
+
+/* ============================================
+   Chart Card
+   ============================================ */
+
+   .financial-chart-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .financial-chart-card .ant-card-body {
+    padding: 12px 16px;  /* Reduce top/bottom padding */
+  }
+  
+  .financial-chart-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* ============================================
+     Chart Container
+     ============================================ */
+  
+  .chart-container {
+    width: 100%;
+    min-height: 280px;
+    position: relative;
+    line-height: 0;  /* Remove line height spacing */
+  }
+  
+  .chart-container svg {
+    /*
+      Display block to remove inline spacing
+    */
+    display: block;
+    overflow: visible;
+  }
+  
+  /* ============================================
+     D3.js Element Styles
+     ============================================ */
+  
+  /*
+    Axis Lines
+  */
+  .chart-container .domain {
+    stroke: rgba(0, 0, 0, 0.15);
+    stroke-width: 1.5px;
+  }
+  
+  /*
+    Axis Tick Lines
+  */
+  .chart-container .tick line {
+    stroke: rgba(0, 0, 0, 0.15);
+  }
+  
+  /*
+    Axis Text
+  */
+  .chart-container .tick text {
+    fill: rgba(0, 0, 0, 0.65);
+  }
+  
+  /*
+    Grid Lines
+  */
+  .chart-container .grid line {
+    stroke: rgba(0, 0, 0, 0.08);
+  }
+  
+  .chart-container .grid .domain {
+    stroke: none;
+  }
+  
+  /* ============================================
+     Bar Styles
+     ============================================ */
+  
+  .chart-container .bar {
+    /*
+      Smooth transitions for hover effects
+    */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    
+    /*
+      Transform origin for scaling
+    */
+    transform-origin: center bottom;
+  }
+  
+  /* ============================================
+     Tooltip Styles
+     ============================================ */
+  
+  .d3-tooltip {
+    /*
+      Position absolutely
+    */
+    position: absolute;
+    
+    /*
+      Text styling
+    */
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    
+    /*
+      Background and border
+    */
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 8px;
+    
+    /*
+      Above everything
+    */
+    pointer-events: none;
+    z-index: 1000;
+    
+    /*
+      Shadow for depth
+    */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /*
+      Smooth transitions
+    */
+    transition: opacity 0.2s ease;
+  }
+  
+  /*
+    Tooltip arrow (optional enhancement)
+  */
+  .d3-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(0, 0, 0, 0.85);
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  /*
+    Tablet
+  */
+  @media (max-width: 992px) {
+    .chart-container {
+      min-height: 280px;
+    }
+    
+    .chart-container .tick text {
+      font-size: 12px;
+    }
+    
+    .chart-container .bar-label {
+      font-size: 12px !important;
+    }
+  }
+  
+  /*
+    Mobile
+  */
+  @media (max-width: 576px) {
+    .chart-container {
+      min-height: 250px;
+    }
+    
+    .chart-container .tick text {
+      font-size: 11px;
+    }
+    
+    .chart-container .bar-label {
+      font-size: 11px !important;
+    }
+    
+    .chart-container .chart-title {
+      font-size: 14px !important;
+    }
+    
+    .d3-tooltip {
+      font-size: 11px;
+      padding: 8px;
+    }
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .d3-tooltip {
+      display: none !important;
+    }
+    
+    .financial-chart-card {
+      box-shadow: none;
+      border: 1px solid #d9d9d9;
+    }
+    
+    .chart-container .bar {
+      /*
+        Ensure colors print correctly
+      */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+  
+  /* ============================================
+     Animation Classes
+     ============================================ */
+  
+  /*
+    Fade in animation for chart
+  */
+  @keyframes chartFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .chart-container svg {
+    animation: chartFadeIn 0.6s ease-out;
+  }
+  
+  /**
+   * SVG Styling Notes:
+   * 
+   * SVG elements can't use all CSS properties.
+   * 
+   * Use these instead:
+   * - fill (instead of background-color)
+   * - stroke (instead of border)
+   * - stroke-width (instead of border-width)
+   * 
+   * Transform origin:
+   * - For scaling bars on hover
+   * - center bottom = scale from bottom center
+   * - Bars grow/shrink from their base
+   * 
+   * Pointer events:
+   * - pointer-events: none on tooltip
+   * - Prevents tooltip from interfering with mouse
+   * - Allows hovering through tooltip
+   */

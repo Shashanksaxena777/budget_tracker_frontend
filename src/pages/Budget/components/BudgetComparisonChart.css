@@ -1,0 +1,117 @@
+/**
+ * Budget Comparison Chart Styles
+ */
+
+/* ============================================
+   Chart Card
+   ============================================ */
+
+   .budget-comparison-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .budget-comparison-card .ant-card-body {
+    padding: 16px;
+  }
+  
+  .budget-comparison-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* ============================================
+     Chart Container
+     ============================================ */
+  
+  .budget-comparison-card .chart-container {
+    width: 100%;
+    min-height: 330px;
+    position: relative;
+    line-height: 0;  /* Remove line height spacing */
+  }
+  
+  .budget-comparison-card .chart-container svg {
+    display: block;  /* Remove inline spacing */
+    overflow: visible;
+  }
+  
+  /* ============================================
+     D3 Element Styles
+     ============================================ */
+  
+  .budget-comparison-card .domain {
+    stroke: rgba(0, 0, 0, 0.15);
+    stroke-width: 1.5px;
+  }
+  
+  .budget-comparison-card .tick line {
+    stroke: rgba(0, 0, 0, 0.15);
+  }
+  
+  .budget-comparison-card .tick text {
+    fill: rgba(0, 0, 0, 0.65);
+  }
+  
+  .budget-comparison-card .grid line {
+    stroke: rgba(0, 0, 0, 0.08);
+  }
+  
+  .budget-comparison-card .grid .domain {
+    stroke: none;
+  }
+  
+  /* ============================================
+     Budget Tooltip
+     ============================================ */
+  
+  .budget-tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 12px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.2s ease;
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  
+  @media (max-width: 768px) {
+    .budget-comparison-card .chart-container {
+      min-height: 300px;
+    }
+    
+    .budget-comparison-card .tick text {
+      font-size: 11px;
+    }
+    
+    .budget-comparison-card .bar-label {
+      font-size: 13px !important;
+    }
+    
+    .budget-comparison-card .status-badge {
+      font-size: 14px !important;
+    }
+  }
+  
+  /* ============================================
+     Print Styles
+     ============================================ */
+  
+  @media print {
+    .budget-tooltip {
+      display: none !important;
+    }
+    
+    .budget-comparison-card {
+      box-shadow: none;
+      border: 1px solid #d9d9d9;
+    }
+  }
