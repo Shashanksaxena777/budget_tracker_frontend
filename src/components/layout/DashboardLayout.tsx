@@ -9,7 +9,7 @@
  * - Responsive design (collapsible sidebar)
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Layout, Menu, Avatar, Dropdown, Space, Typography, Button } from 'antd';
 import {
   DashboardOutlined,
@@ -50,25 +50,30 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (isMobile && !collapsed) {
-      const touch = e.touches[0];
-      // Store initial touch position
-      (e.currentTarget as any).touchStartX = touch.clientX;
-    }
-  };
-  
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (isMobile && !collapsed) {
-      const touch = e.changedTouches[0];
-      const startX = (e.currentTarget as any).touchStartX;
-      
-      // If swiped left more than 50px, close sidebar
-      if (startX - touch.clientX > 50) {
+  const siderRef = useRef<HTMLDivElement | null>(null);
+
+  // Detect clicks or touches outside the sidebar
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        isMobile &&
+        !collapsed &&
+        siderRef.current &&
+        !siderRef.current.contains(event.target as Node)
+      ) {
         setCollapsed(true);
       }
-    }
-  };
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+  
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobile, collapsed]);
+  
 
   /**
    * Detect mobile screen size
@@ -169,19 +174,20 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
        * collapsible - Can be collapsed
        * collapsed - Current collapsed state
        */}
+       {isMobile && !collapsed && (
+        <div className="overlay" onClick={() => setCollapsed(true)} />
+        )}
+
       <Sider
+        ref={siderRef}
         trigger={null}
         collapsible
         collapsed={collapsed}
-        breakpoint="lg"  // Auto-collapse on screens smaller than lg
-        onBreakpoint={(broken) => {
-          // Auto-collapse on mobile
-          setCollapsed(broken);
-        }}
+        breakpoint="lg"
+        onBreakpoint={(broken) => setCollapsed(broken)}
         className="dashboard-sider"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+        >
+
         {/**
          * Logo Section
          * 

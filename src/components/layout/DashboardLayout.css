@@ -468,6 +468,18 @@
   .dark-mode .username {
     color: rgba(255, 255, 255, 0.85);
   }
+
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998; /* below sidebar */
+  }
+  .dashboard-sider {
+    z-index: 999;
+  }
+  
   
   /* ============================================
      Print Styles
