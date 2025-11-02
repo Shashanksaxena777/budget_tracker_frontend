@@ -326,17 +326,73 @@
      ============================================ */
   
   /*
-    Tablet and below
+    Desktop - Sidebar fixed, content has margin
+  */
+  @media (min-width: 993px) {
+    .dashboard-content {
+      margin-left: 200px;  /* Width of sidebar */
+    }
+    
+    /* When sidebar is collapsed */
+    .ant-layout-sider-collapsed ~ .ant-layout .dashboard-content {
+      margin-left: 80px;  /* Width of collapsed sidebar */
+    }
+    
+    .dashboard-header {
+      width: calc(100% - 200px);  /* Full width minus sidebar */
+    }
+    
+    /* When sidebar is collapsed */
+    .ant-layout-sider-collapsed + .ant-layout .dashboard-header {
+      width: calc(100% - 80px);  /* Full width minus collapsed sidebar */
+    }
+  }
+  
+  /*
+    Tablet and below - Sidebar overlay, no content margin
   */
   @media (max-width: 992px) {
     .dashboard-header {
       padding: 0 16px;
-      width: 100% !important;  /* Full width on mobile */
+      width: 100% !important;  /* Full width on tablet/mobile */
+      left: 0 !important;
+      margin-left: 0 !important;
     }
     
     .dashboard-content {
       padding: 16px;
       margin-left: 0 !important;  /* No left margin on mobile */
+      width: 100% !important;
+    }
+    
+    /*
+      Sidebar becomes overlay on mobile
+    */
+    .dashboard-sider {
+      position: fixed !important;
+      z-index: 1000 !important;  /* Above everything */
+      left: 0;
+      
+      /* Hidden by default on mobile when collapsed */
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    /* Show sidebar when not collapsed */
+    .dashboard-sider:not(.ant-layout-sider-collapsed) {
+      transform: translateX(0);
+    }
+    
+    /* Backdrop when sidebar is open */
+    .dashboard-sider:not(.ant-layout-sider-collapsed)::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
     }
     
     /*
@@ -345,16 +401,10 @@
     .username {
       display: none;
     }
-    
-    /* Sidebar becomes overlay on mobile */
-    .dashboard-sider {
-      position: fixed !important;
-      z-index: 1000;
-    }
   }
   
   /*
-    Mobile
+    Mobile specific
   */
   @media (max-width: 576px) {
     .dashboard-header {

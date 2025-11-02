@@ -9,7 +9,7 @@
  * - Responsive design (collapsible sidebar)
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Layout, Menu, Avatar, Dropdown, Space, Typography, Button } from 'antd';
 import {
   DashboardOutlined,
@@ -46,9 +46,28 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
    */
   const [collapsed, setCollapsed] = useState(false);  // Sidebar collapsed state
   const { user, logout } = useAuth();
-  console.log("user", user)
   const navigate = useNavigate();
   const location = useLocation();
+
+  /**
+   * Detect mobile screen size
+   */
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth <= 992) {
+        setCollapsed(true);
+      }
+    };
+
+    // Check on mount
+    checkMobile();
+
+    // Add event listener
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   /**
    * Handle Logout
