@@ -44,7 +44,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   /**
    * State & Hooks
    */
-  const [collapsed, setCollapsed] = useState(false);  // Sidebar collapsed state
+  const [collapsed, setCollapsed] = useState(true);  // Sidebar collapsed state
   const [isMobile, setIsMobile] = useState(false);    // Mobile detection
   const { user, logout } = useAuth();
   const navigate = useNavigate();
