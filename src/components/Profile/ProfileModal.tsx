@@ -7,6 +7,8 @@ interface ProfileModalProps {
   open: boolean;
   onClose: () => void;
   user: {
+    first_name?:string,
+    last_name?:string,
     username?: string;
     email?: string;
     id?: string;
@@ -41,7 +43,7 @@ const ProfileModal = ({ open, onClose, user }: ProfileModalProps) => {
             style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
           />
           <Title level={4} style={{ marginTop: 8 }}>
-            {user.username || 'Unknown User'}
+            {user.first_name + ' ' + user.last_name || 'Unknown User'}
           </Title>
           <Tag color="blue" style={{ fontSize: 13 }}>
             Active Member
@@ -56,7 +58,7 @@ const ProfileModal = ({ open, onClose, user }: ProfileModalProps) => {
             <Space>
               <IdcardOutlined style={{ color: '#1677ff' }} />
               <Text strong>User ID:</Text>
-              <Text type="secondary">{user.id || 'N/A'}</Text>
+              <Text type="secondary">{user.username || 'N/A'}</Text>
             </Space>
           </Col>
           <Col span={24}>

@@ -292,6 +292,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     open={isProfileModalOpen}
     onClose={() => setIsProfileModalOpen(false)}
     user={{
+        first_name: user?.first_name,
+        last_name: user?.last_name,
       username: user?.username,
       email: user?.email,
       id: user?.id?.toString() || '001',
