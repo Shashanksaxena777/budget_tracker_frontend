@@ -67,11 +67,11 @@ const App = () => {
           element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }
         />
         
-
+{/* 
         <Route
           path="/profile"
           element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }
-        />
+        /> */}
 
           <Route
             path="/transactions"

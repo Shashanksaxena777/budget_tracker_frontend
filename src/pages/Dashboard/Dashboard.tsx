@@ -178,10 +178,10 @@ const Dashboard = () => {
          * 
          * Shows total income, expenses, balance
          */}
-        <SummaryCards 
+        {/* <SummaryCards 
           summary={summary} 
           loading={summaryLoading} 
-        />
+        /> */}
 
         {/**
          * Main Content Grid

@@ -24,6 +24,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import type { MenuProps } from 'antd';
 import './DashboardLayout.css';
+import ProfileModal from '../Profile/ProfileModal';
 
 const { Header, Sider, Content } = Layout;
 const { Text } = Typography;
@@ -45,7 +46,9 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
    * State & Hooks
    */
   const [collapsed, setCollapsed] = useState(true);  // Sidebar collapsed state
-  const [isMobile, setIsMobile] = useState(false);    // Mobile detection
+  const [isMobile, setIsMobile] = useState(false); 
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+   // Mobile detection
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -139,11 +142,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
    */
   const userMenuItems: MenuProps['items'] = [
     {
-      key: 'profile',
-      icon: <UserOutlined />,
-      label: 'Profile',
-      onClick: () => navigate('/profile'),
-    },
+        key: 'profile',
+        icon: <UserOutlined />,
+        label: 'Profile',
+        onClick: () => setIsProfileModalOpen(true),
+      },      
     {
       type: 'divider',  // Separator line
     },
@@ -166,6 +169,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const selectedKey = location.pathname;
 
   return (
+    <>
     <Layout className="dashboard-layout">
       {/**
        * Sidebar (Sider)
@@ -284,6 +288,17 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </Content>
       </Layout>
     </Layout>
+    <ProfileModal
+    open={isProfileModalOpen}
+    onClose={() => setIsProfileModalOpen(false)}
+    user={{
+      username: user?.username,
+      email: user?.email,
+      id: user?.id?.toString() || '001',
+    }}
+  />
+  </>
+  
   );
 };
 
