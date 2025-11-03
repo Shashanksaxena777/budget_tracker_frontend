@@ -66,9 +66,7 @@ const FinancialChart = ({ summary, loading }: FinancialChartProps) => {
     if (!summary || loading) return;
 
     // Clear previous chart
-    if (svgRef.current) {
-      d3.select(svgRef.current).selectAll('*').remove();
-    }
+    d3.select(chartRef.current).select('svg').remove();
 
     // Draw new chart
     drawChart();

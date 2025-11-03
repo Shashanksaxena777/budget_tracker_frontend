@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import PrivateRoute from "./routes/PrivateRoute";
 import Transactions from "./pages/Transactions/Transactions";
 import  Budget from "./pages/Budget/Budget";
+import AIAdvisor from "./pages/AIAdvisor/AIAdvisor";
 
 const App = () => {
   const { loading, isAuthenticated } = useAuth();
@@ -67,11 +68,11 @@ const App = () => {
           element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }
         />
         
-{/* 
+
         <Route
-          path="/profile"
-          element={ <PrivateRoute> <Dashboard /> </PrivateRoute> }
-        /> */}
+          path="/ai-advisor"
+          element={ <PrivateRoute> <AIAdvisor /> </PrivateRoute> }
+        />
 
           <Route
             path="/transactions"

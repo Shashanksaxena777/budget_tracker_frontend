@@ -30,7 +30,7 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   
   // Timeout after 10 seconds
-  timeout: 10000,
+//   timeout: 10000,
   
   // Default headers for all requests
   headers: {

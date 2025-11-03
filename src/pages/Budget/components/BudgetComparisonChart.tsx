@@ -49,9 +49,7 @@ const BudgetComparisonChart = ({ comparison, loading }: BudgetComparisonChartPro
     if (!comparison || loading) return;
 
     // Clear previous chart
-    if (svgRef.current) {
-      d3.select(svgRef.current).selectAll('*').remove();
-    }
+    d3.select(chartRef.current).select('svg').remove();
 
     drawChart();
   }, [comparison, loading]);

@@ -19,6 +19,7 @@ import {
   UserOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  RobotOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -133,6 +134,12 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       label: 'Budget',
       onClick: () => navigate('/budget'),
     },
+    {
+        key: '/ai-advisor',
+        icon: <RobotOutlined />,
+        label: 'AI Advisor',
+        onClick: () => navigate('/ai-advisor'),
+      },
   ];
 
   /**
