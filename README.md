@@ -162,146 +162,10 @@ budget-tracker-frontend/
 └── README.md
 ```
 
-## 🧪 Running Tests
-
-```bash
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run tests in watch mode
-npm run test:watch
-```
-
-## 🌐 Deployment
-
-### Option 1: Vercel (Recommended)
-
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Login and deploy:
-```bash
-vercel login
-vercel
-```
-
-3. Set environment variables:
-   - Go to Vercel Dashboard
-   - Select your project
-   - Settings → Environment Variables
-   - Add: `VITE_API_BASE_URL` = your backend URL
-
-4. Redeploy after adding variables
-
-**Or deploy via Git:**
-1. Push code to GitHub
-2. Import project in Vercel
-3. Set environment variables
-4. Deploy
-
-### Option 2: Netlify
-
-1. Build the project:
-```bash
-npm run build
-```
-
-2. Install Netlify CLI:
-```bash
-npm install -g netlify-cli
-```
-
-3. Deploy:
-```bash
-netlify login
-netlify deploy --prod
-```
-
-4. Set environment variables:
-   - Netlify Dashboard
-   - Site settings → Environment variables
-   - Add: `VITE_API_BASE_URL`
-
-**Or deploy via Git:**
-1. Push to GitHub
-2. Connect repository in Netlify
-3. Set build command: `npm run build`
-4. Set publish directory: `dist`
-5. Add environment variables
-6. Deploy
-
-### Option 3: GitHub Pages
-
-1. Install gh-pages:
-```bash
-npm install --save-dev gh-pages
-```
-
-2. Update `vite.config.ts`:
-```typescript
-export default defineConfig({
-  base: '/budget-tracker/',  // Your repo name
-  // ... other config
-});
-```
-
-3. Add scripts to `package.json`:
-```json
-{
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  }
-}
-```
-
-4. Deploy:
-```bash
-npm run deploy
-```
-
-## 🎨 Customization
-
-### Theme Customization
-
-Edit `src/styles/theme.ts`:
-
-```typescript
-export const theme: ThemeConfig = {
-  token: {
-    colorPrimary: '#1677ff',  // Primary color
-    borderRadius: 8,           // Border radius
-    // ... more customization
-  },
-};
-```
-
-### Adding New Pages
-
-1. Create page component in `src/pages/NewPage/`
-2. Add route in `src/App.tsx`
-3. Add menu item in `src/components/layout/DashboardLayout.tsx`
-
 ## 🔒 Security Best Practices
 
 1. **API Base URL** - Use environment variables
 2. **Token Storage** - Stored in localStorage (consider httpOnly cookies for production)
-3. **Token Expiration** - Auto-logout handled
-4. **XSS Protection** - React escapes by default
-5. **HTTPS** - Always use HTTPS in production
-
-## 📱 Responsive Breakpoints
-
-```css
-Mobile:  < 576px
-Tablet:  576px - 992px
-Desktop: > 992px
-```
 
 ## 🎯 Browser Support
 
@@ -309,51 +173,6 @@ Desktop: > 992px
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-
-## 🐛 Troubleshooting
-
-### Issue: Cannot connect to backend
-
-**Solution:**
-1. Ensure backend is running
-2. Check `VITE_API_BASE_URL` in `.env`
-3. Verify CORS settings in backend
-
-### Issue: Build fails
-
-**Solution:**
-1. Delete `node_modules` and `package-lock.json`
-2. Run `npm install` again
-3. Check for TypeScript errors: `npm run type-check`
-
-### Issue: Routing not working after deployment
-
-**Solution:**
-- Configure server to redirect all routes to `index.html`
-- For Vercel: Automatically handled
-- For Netlify: Add `_redirects` file:
-  ```
-  /*    /index.html   200
-  ```
-
-## 📦 Scripts
-
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint
-npm run type-check   # TypeScript type checking
-npm test             # Run tests
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
 
 ## 📝 Code Style
 
@@ -370,13 +189,7 @@ npm test             # Run tests
 
 ## 🔗 Links
 
-- **Live Demo**: [Your deployed URL]
-- **Backend API**: [Your backend URL]
-- **API Documentation**: [Backend URL]/api/
-
-## 📞 Support
-
-For issues and questions, please open an issue on GitHub.
+- **Live Demo**: [\[Your deployed URL\]](https://budget-tracker-frontend-nine.vercel.app/login)
 
 ---
 
