@@ -9,6 +9,7 @@ Modern React + TypeScript frontend for the Personal Budget Tracker application.
 - **Transaction Management** - Add, edit, delete transactions with filters
 - **Budget Tracking** - Set monthly budgets and track spending
 - **Category Management** - Dynamic category creation
+-  **AI Advisor** - AI based financial advisor to your query
 - **Data Visualization** - Beautiful D3.js charts
 - **Responsive Design** - Works on all devices
 - **Modern UI** - Ant Design component library
