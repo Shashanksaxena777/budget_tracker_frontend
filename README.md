@@ -194,7 +194,7 @@ budget-tracker-frontend/
 
 ## 🔗 Links
 
-- **Live Demo**: [\[Your deployed URL\]](https://budget-tracker-frontend-nine.vercel.app/login)
+- **Live Demo**: [\[URL\]](https://budget-tracker-frontend-nine.vercel.app/login)
 
 ---
 
