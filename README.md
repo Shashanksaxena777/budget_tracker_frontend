@@ -35,7 +35,7 @@ Modern React + TypeScript frontend for the Personal Budget Tracker application.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone <repo_url>
 cd budget-tracker-frontend
 ```
 
@@ -58,10 +58,8 @@ Edit `.env`:
 
 ```env
 # Development
-VITE_API_BASE_URL=budgettracker-production-033c.up.railway.app
+VITE_API_BASE_URL= <Backend_url>
 
-# Production (update when deploying)
-# VITE_API_BASE_URL=https://your-backend-url.com
 ```
 
 ### 4. Run Development Server
@@ -123,6 +121,12 @@ npm run preview
 - Categories filtered by transaction type
 - Search categories
 
+
+### 6. AI Advisor
+- Get Financial Advise
+- Easy chat system
+- Short and readable responses
+
 ## 📂 Project Structure
 
 ```
@@ -135,10 +139,11 @@ budget-tracker-frontend/
 │   │   ├── categoryApi.ts     # Category APIs
 │   │   └── budgetApi.ts       # Budget APIs
 │   ├── components/             # Reusable components
-│   │   ├── common/            # Generic components
+│   │   ├── Profile/            # Profile Modal
 │   │   └── layout/            # Layout components
 │   ├── pages/                  # Page components
 │   │   ├── Login/
+│   │   ├── AIAdvisor/
 │   │   ├── Dashboard/
 │   │   ├── Transactions/
 │   │   └── Budget/
