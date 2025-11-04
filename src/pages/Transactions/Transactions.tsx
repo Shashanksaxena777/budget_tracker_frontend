@@ -46,6 +46,7 @@ import {
   type PaginatedResponse,
 } from '../../api/transactionApi';
 import './Transactions.css';
+import dayjs from 'dayjs';
 
 const { Title, Text } = Typography;
 
@@ -207,7 +208,7 @@ const Transactions = () => {
       render: (date: string) => (
         <Text strong>{formatDate(date)}</Text>
       ),
-      sorter: true, // Enable sorting (handled by backend)
+      sorter: (a, b) => dayjs(a.date).unix() - dayjs(b.date).unix(),
     },
     {
       title: 'Type',
@@ -226,6 +227,7 @@ const Transactions = () => {
         { text: 'Income', value: 'income' },
         { text: 'Expense', value: 'expense' },
       ],
+      onFilter: (value, record) => record.type === value,
     },
     {
       title: 'Category',
