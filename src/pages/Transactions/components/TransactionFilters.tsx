@@ -13,8 +13,8 @@
  * - Clear all filters
  * - Real-time filtering
  */
-
-import { useState, useEffect } from 'react';
+import debounce from 'lodash.debounce';
+import { useState, useEffect, useMemo } from 'react';
 import {
   Card,
   Form,
@@ -125,8 +125,13 @@ const TransactionFilters = ({ onFilterChange, loading }: TransactionFiltersProps
     filters.ordering = '-date';
 
     // Call parent component with filters
-    onFilterChange(filters);
+    debouncedFilterChange(filters);
   };
+
+  const debouncedFilterChange = useMemo(
+    () => debounce((filters:any) => onFilterChange(filters), 500),
+    []
+  );
 
   /**
    * Clear All Filters
